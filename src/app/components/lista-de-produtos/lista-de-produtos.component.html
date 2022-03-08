@@ -1,0 +1,31 @@
+<body>
+<h1>Lista de Produtos</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Preço</th>
+    <th>Marca</th>
+    <th>Tipo de Hardware</th>
+    <th>Estado</th>
+    <th>Ano de Lançamento</th>
+    <th>RGB</th>
+    <th>Operação</th>
+  </tr>
+  <tr *ngFor="let produto of lista_produtos; let i = index">  
+    <td>{{produto.getNome()}}</td>    
+    <td>{{produto.getPreco()}}</td>
+    <td>{{produto.getMarca()}}</td>
+    <td>{{produto.getHardware()}}</td>
+    <td>{{produto.getEstado()}}</td>
+    <td>{{produto.getAnolanc()}}</td>
+    <td>{{produto.getRgb()}}</td>
+    <td>
+      <button (click)="editar(i)" mat-button color="primary">Editar</button>
+      <button (click)="excluir(i)" mat-button color="warn">Excluir</button>
+      
+    </td>
+  </tr>
+</table>
+<button (click)="irParaCriarProduto()" mat-flat-button color="primary">Criar Produto</button>
+</body>
