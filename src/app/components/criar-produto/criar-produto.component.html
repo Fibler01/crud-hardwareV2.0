@@ -11,8 +11,8 @@
 
 <div *ngIf="formCadastrar.controls['nome'].touched">   <!-- se nome foi tocado -->
 
-    <small *ngIf="formCadastrar.controls['nome'].hasError('required')" style="color: red;">O Nome é Obrigatório</small>
-    <small *ngIf="formCadastrar.controls['nome'].hasError('minlength')" style="color: red;">O Nome precisa ter no mínimo 5 caracteres</small>
+    <small *ngIf="formCadastrar.controls['nome'].hasError('required')" class="alerta">O Nome é Obrigatório</small>
+    <small *ngIf="formCadastrar.controls['nome'].hasError('minlength')" class="alerta">O Nome precisa ter no mínimo 5 caracteres</small>
 </div>
 <br>
 
@@ -22,7 +22,7 @@
 </mat-form-field>
 
 <div *ngIf="formCadastrar.controls['preco'].touched">   <!-- se preco foi tocado -->
-    <small *ngIf="formCadastrar.controls['preco'].hasError('required')" style="color: red;">O Preço é Obrigatório</small>
+    <small *ngIf="formCadastrar.controls['preco'].hasError('required')" class="alerta">O Preço é Obrigatório</small>
 </div>
 <br>
 
@@ -32,7 +32,7 @@
 
 </mat-form-field>
 <div *ngIf="formCadastrar.controls['marca'].touched">   
-    <small *ngIf="formCadastrar.controls['marca'].hasError('required')" style="color: red;">A Marca é Obrigatória</small>
+    <small *ngIf="formCadastrar.controls['marca'].hasError('required')" class="alerta">A Marca é Obrigatória</small>
 </div>
 <br>
 
@@ -50,7 +50,7 @@
 </mat-form-field>
 
 <div *ngIf="formCadastrar.controls['hardware'].touched">   
-    <small *ngIf="formCadastrar.controls['hardware'].hasError('required')" style="color: red;">A Hardware é Obrigatório</small>
+    <small *ngIf="formCadastrar.controls['hardware'].hasError('required')" class="alerta">A Hardware é Obrigatório</small>
 </div>
 <br>
 
@@ -64,7 +64,7 @@
     
 </mat-form-field>
 <div *ngIf="formCadastrar.controls['estado'].touched">   
-    <small *ngIf="formCadastrar.controls['estado'].hasError('required')" style="color: red;">O Estado é Obrigatório</small>
+    <small *ngIf="formCadastrar.controls['estado'].hasError('required')" class="alerta">O Estado é Obrigatório</small>
 </div>
 <br>
 
@@ -87,7 +87,7 @@
     </select>
 </mat-form-field> 
 <div *ngIf="formCadastrar.controls['anolanc'].touched">   
-    <small *ngIf="formCadastrar.controls['anolanc'].hasError('required')" style="color: red;">O Ano de lançamento é Obrigatório</small>
+    <small *ngIf="formCadastrar.controls['anolanc'].hasError('required')" class="alerta">O Ano de lançamento é Obrigatório</small>
 </div>
 <br>
 
@@ -100,7 +100,7 @@
     
 </mat-form-field>
 <div *ngIf="formCadastrar.controls['rgb'].touched">   
-    <small *ngIf="formCadastrar.controls['rgb'].hasError('required')" style="color: red;">O RGB é Obrigatório</small>
+    <small *ngIf="formCadastrar.controls['rgb'].hasError('required')" class="alerta">O RGB é Obrigatório</small>
 </div>
 <br>
 
