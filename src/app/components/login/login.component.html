@@ -1,0 +1,21 @@
+<h1>Login</h1>
+<form [formGroup]="formLogin" (ngSubmit)="submitForm()">
+<label>email:</label>
+<input type="text" formControlName="email"> <br>
+<div *ngIf="formLogin.controls['email'].touched">   <!-- se email foi tocado -->
+
+    <small *ngIf="formLogin.controls['email'].hasError('required')" style="color: red;">O email é Obrigatório</small>
+    <small *ngIf="formLogin.controls['email'].hasError('email')" style="color: red;">Formato de email inválido</small>
+</div>
+<label>Password:</label>
+<input type="password" formControlName="password"> <br>
+<div *ngIf="formLogin.controls['password'].touched">   <!-- se password foi tocado -->
+    <small *ngIf="formLogin.controls['password'].hasError('required')" style="color: red;">A Senha é Obrigatória</small>
+    <small *ngIf="formLogin.controls['password'].hasError('minlength')" style="color: red;">A senha precisa ter no mínimo 6 caractéres</small>
+</div>
+<button type="submit">Entrar</button>
+</form>   <!-- formulario agora reativo -->
+
+<button (click)="logarComGoogleCount()"
+style="background-color: red; color: white">Logar com Conta Google</button> <br />
+<a routerLink="/cadastro">Não tem Cadastro? Clique Aqui!</a>
