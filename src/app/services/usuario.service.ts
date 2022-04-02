@@ -6,12 +6,21 @@ import { GoogleAuthProvider } from 'firebase/auth';
   providedIn: 'root'
 })
 export class UsuarioService {
+  usuario : any;
+  storage : Storage;
 
-  constructor(private authService : AngularFireAuth) { }
+  constructor(private authService : AngularFireAuth) {
+    this.storage = window.localStorage;
+   }
+
+
 
   loginComEmailPassword(email: string, password: string){
     return this.authService.
-    signInWithEmailAndPassword(email, password);
+    signInWithEmailAndPassword(email, password)
+    .then((data)=>{
+      this.storage.setItem("condicao", "autenticado");
+    });
   }
 
 
@@ -22,7 +31,10 @@ export class UsuarioService {
 
 
   loginComGoogleCount(){
-    return this.authLoginProvider(new GoogleAuthProvider());
+    return this.authLoginProvider(new GoogleAuthProvider())
+    .then((data)=>{
+      this.storage.setItem("condicao", "autenticado");
+    });
   }
 
 
@@ -32,6 +44,7 @@ export class UsuarioService {
 
 
   logout(){
+    this.storage.setItem("condicao", "deslogado"); /* fazendo com que ao usuario deslogar ele nao entre mais nas protegidas */
     return this.authService.signOut();
   }
 }

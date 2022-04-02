@@ -1,1 +1,46 @@
-<p>cadastrar works!</p>
+
+<body>
+
+<form [formGroup]="formCadastrar" (ngSubmit)="submitForm()">
+    <h1>Cadastrar</h1>
+    <hr>
+    
+    <mat-form-field class="example-full-width" appearance="fill">
+<mat-label>email:</mat-label>
+<input matInput placeholder="Ex: usuario@hotmail.com" type="text" formControlName="email"> 
+</mat-form-field>
+<br>
+
+<div *ngIf="formCadastrar.controls['email'].touched">   <!-- se email foi tocado -->
+
+    <small *ngIf="formCadastrar.controls['email'].hasError('required')" style="color: red;">O email é Obrigatório</small>
+    <small *ngIf="formCadastrar.controls['email'].hasError('email')" style="color: red;">Formato de email inválido</small>
+</div>
+
+<mat-form-field class="example-full-width" appearance="fill">
+<mat-label>Password:</mat-label>
+<input matInput placeholder="Insira sua senha" type="password" formControlName="password"> 
+</mat-form-field>
+<br>
+
+<div *ngIf="formCadastrar.controls['password'].touched">   <!-- se password foi tocado -->
+    <small *ngIf="formCadastrar.controls['password'].hasError('required')" style="color: red;">A Senha é Obrigatória</small>
+    <small *ngIf="formCadastrar.controls['password'].hasError('minlength')" style="color: red;">A senha precisa ter no mínimo 6 caractéres</small>
+</div>
+
+
+<mat-form-field class="example-full-width" appearance="fill">
+<mat-label>Confirmar Password:</mat-label>
+<input matInput placeholder="Insira sua senha" type="password" formControlName="confirmPassword"> 
+</mat-form-field>
+<br>
+<div *ngIf="formCadastrar.controls['confirmPassword'].touched">   <!-- se password foi tocado -->
+    <small *ngIf="formCadastrar.controls['confirmPassword'].hasError('required')" style="color: red;">A Senha é Obrigatória</small>
+    <small *ngIf="formCadastrar.controls['confirmPassword'].hasError('minlength')" style="color: red;">A senha precisa ter no mínimo 6 caractéres</small>
+    <small *ngIf="formCadastrar.controls['confirmPassword'].value != formCadastrar.controls['password'].value" style="color: red;">As senhas não conferem</small>
+
+</div>
+
+<button type="submit" mat-raised-button color="primary">Cadastrar</button>
+</form>   <!-- formulario agora reativo -->
+</body>
