@@ -1,0 +1,43 @@
+
+<body>
+  <h1>Lista de Produtos</h1>
+  <button mat-button color="warn" class="logout" (click)="logout()">Sair</button>
+  
+ 
+  <table class="tabela-estilizada">
+    <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Preço</th>
+      <th>Marca</th>
+      <th>Tipo de Hardware</th>
+      <th>Estado</th>
+      <th>Ano de Lançamento</th>
+      <th>RGB</th>
+      <th>Foto</th>
+      <th>Operação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let produto of lista_produtos">  
+      <td>{{produto.nome}}</td>    
+      <td>{{produto.preco}}</td>
+      <td>{{produto.marca}}</td>
+      <td>{{produto.hardware}}</td>
+      <td>{{produto.estado}}</td>
+      <td>{{produto.anolanc}}</td>
+      <td>{{produto.rgb}}</td>
+      <td><img src="{{produto.downloadURL}}"></td>
+      <td>
+        <button (click)="editar(produto)" mat-button color="primary">Editar</button>
+        <button (click)="excluir(produto)" mat-button color="warn">Excluir</button>
+        
+      </td>
+      
+    </tr>
+  </tbody>
+  </table>
+  <button (click)="irParaCriarProduto()" mat-flat-button color="primary">Criar Produto</button>
+
+  
+  </body>

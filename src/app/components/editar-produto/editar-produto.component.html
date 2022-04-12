@@ -1,0 +1,110 @@
+<body>
+    <h1>Editar Produto</h1>
+    
+    
+    <form [formGroup]="formEditar" (ngSubmit)="submitForm()">
+        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nome:</mat-label>
+        <input matInput placeholder="Ex: GTX 980 TI" type="text" formControlName="nome">
+        </mat-form-field>
+        
+        
+        <div *ngIf="formEditar.controls['nome'].touched">   <!-- se nome foi tocado -->
+        
+            <small *ngIf="formEditar.controls['nome'].hasError('required')" class="alerta">O Nome é Obrigatório</small>
+            <small *ngIf="formEditar.controls['nome'].hasError('minlength')" class="alerta">O Nome precisa ter no mínimo 5 caracteres</small>
+        </div>
+        <br>
+        
+        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Preço:</mat-label>
+        <input matInput placeholder="Ex: 100.00" type="number" formControlName="preco"> 
+        </mat-form-field>
+        
+        <div *ngIf="formEditar.controls['preco'].touched">   <!-- se preco foi tocado -->
+            <small *ngIf="formEditar.controls['preco'].hasError('required')" class="alerta">O Preço é Obrigatório</small>
+        </div>
+        <br>
+        
+        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Marca:</mat-label>
+        <input matInput placeholder="Ex: ASUS" type="text" formControlName="marca">
+        
+        </mat-form-field>
+        <div *ngIf="formEditar.controls['marca'].touched">   
+            <small *ngIf="formEditar.controls['marca'].hasError('required')" class="alerta">A Marca é Obrigatória</small>
+        </div>
+        <br>
+        
+        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Tipo de Hardware:</mat-label>
+        <select matNativeControl required name="hardware" id="hardware" formControlName="hardware"> 
+            <option value="Placa-mãe">Placa-mãe</option>
+            <option value="Placa de vídeo">Placa de vídeo</option>
+            <option value="Fonte">Fonte</option>
+            <option value="Memoria RAM">Memória RAM</option>
+            <option value="Processador">Processador</option>
+            <option value="Outro">Outro</option>
+            </select>
+            
+        </mat-form-field>
+        
+        <div *ngIf="formEditar.controls['hardware'].touched">   
+            <small *ngIf="formEditar.controls['hardware'].hasError('required')" class="alerta">A Hardware é Obrigatório</small>
+        </div>
+        <br>
+        
+        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Estado do produto:</mat-label>
+        <select matNativeControl required name="estado" id="estado" formControlName="estado"> 
+            <option value="Novo">Novo</option>
+            <option value="Semi-Novo">Semi-Novo</option>
+            <option value="Usado">Usado</option>
+            </select> 
+            
+        </mat-form-field>
+        <div *ngIf="formEditar.controls['estado'].touched">   
+            <small *ngIf="formEditar.controls['estado'].hasError('required')" class="alerta">O Estado é Obrigatório</small>
+        </div>
+        <br>
+        
+        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Ano de lançamento:</mat-label>
+        <select matNativeControl required name="anolanc" formControlName="anolanc"> 
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            </select>
+        </mat-form-field> 
+        <div *ngIf="formEditar.controls['anolanc'].touched">   
+            <small *ngIf="formEditar.controls['anolanc'].hasError('required')" class="alerta">O Ano de lançamento é Obrigatório</small>
+        </div>
+        <br>
+        
+        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Tem RGB?</mat-label>
+        <select matNativeControl required name="rgb" id="rgb" formControlName="rgb"> 
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+            </select> 
+            
+        </mat-form-field>
+        <div *ngIf="formEditar.controls['rgb'].touched">   
+            <small *ngIf="formEditar.controls['rgb'].hasError('required')" class="alerta">O RGB é Obrigatório</small>
+        </div>
+        <br>
+        
+        <button type="submit" mat-button>Salvar</button>
+        </form>   <!-- formulario agora reativo -->
+    </body>
+    
